@@ -1,3 +1,16 @@
+/**
+* Purpose :This FindGuitarTester program adds the guitar entry details like adding price,Model,Type
+* and check the guitar availability input given by the customer to search guitar in the Invertory 
+* 
+* @author Radhika Hegde
+* @version 1.0
+* @since   09-16-2017
+*
+*/
+/* Class Description: This is the main method which  makes calls to Guitar 
+* and Inventory classes to fetch Erin's input and print inventory output if matches with the input 
+* @param args Unused 
+*/
 public class FindGuitarTester {
 
   public static void main(String[] args) {
@@ -7,7 +20,11 @@ public class FindGuitarTester {
 
     Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor", 
                                       "electric", "Alder", "Alder");
+    // Search method is called from inventory class 
+    // which in turn returns a Guitar object
     Guitar guitar = inventory.search(whatErinLikes);
+    
+    // This prints if there is a return from the search function in the inventory class
     if (guitar != null) {
       System.out.println("Erin, you might like this " +
         guitar.getBuilder() + " " + guitar.getModel() +  " " +
@@ -19,7 +36,12 @@ public class FindGuitarTester {
       System.out.println("Sorry, Erin, we have nothing for you.");
     }
   }
-
+/* 
+ * Description:   This is a static functions with no return type, adds a single guitar entry using addGuitar function available in 
+ * Inventory class with the guitar  attributes
+ * Input : This function takes input of a Inventory object which will be then used to add a new guitar into inventory list
+ * Output : There is no return type to this function
+ */
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",
                         "Indian Rosewood", "Sitka");
